@@ -66,7 +66,7 @@
   /* mouse grab icon */
 
   .grabbing {
-    cursor: url("../images/grabbing.png") 8 8, move;
+    cursor: url("../img/cursor.png") 8 8, move;
   }
 
   /* fix */
@@ -183,7 +183,7 @@
 
   .owl-item.loading {
     min-height: 150px;
-    background: url("../images/AjaxLoader.gif") no-repeat center center
+    background: url("../img/AjaxLoader.gif") no-repeat center center;
   }
 
   .owl-origin {
