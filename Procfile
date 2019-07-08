@@ -1,1 +1,2 @@
-web: gunicorn hello:app
+web: gunicorn learners_library.wsgi --log-file -
+
