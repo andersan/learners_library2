@@ -1,0 +1,6 @@
+wordfreq==2.2.1
+Gutenberg==0.7.0
+textstat==0.5.6
+nltk==3.4.3
+Django==2.2.3
+django_heroku==0.3.1
