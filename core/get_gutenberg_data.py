@@ -48,7 +48,7 @@ def get_raw_stats(book, text):
 	}
 
 def set_book_stats(book, stats):
-	getcontext().prec = 2
+	getcontext().prec = 2 # sets max decimal places to 2
 	if book.has_book_readability():
 		book.book_readability.delete()
 	br = Book_Readability(

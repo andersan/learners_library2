@@ -3,6 +3,11 @@ from django.core.exceptions import ObjectDoesNotExist
 from core.flat_wordlist import get_wordlist, ordered_word_frequency
 
 
+## TODO: 	Fix this method / the organization of the Word data in the DB. 
+## 			Seems to be Far too expensive to save a new object for each unique word for each book.
+##			Not reliable when run on Heroku - use these limitations to rethink this data structure.
+##			Another option would be generating all data outside Heroku and importing it there.
+
 def count_book_tokens(book, recount=False):
 	if book.word_set.count() > 0 and recount == False:
 		return # avoid recounting words 
