@@ -99,7 +99,9 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+DATABASES['default'] = dj_database_url.config(
+    default='postgres://admin:ju*8&DDefx07s@127.0.0.1:5432/llibdb', 
+    conn_max_age=600)
 
 
 # Password validation
