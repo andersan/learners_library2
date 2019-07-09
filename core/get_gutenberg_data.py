@@ -6,6 +6,7 @@ from core.models import Book, Book_Readability, Book_Stats
 from core.get_word_frequencies import get_average_frequency
 from decimal import getcontext, Decimal, DecimalException
 from nltk import sent_tokenize
+from nltk import download
 
 top_books = [2701, #moby dick
 1342, #jane austen
@@ -36,6 +37,7 @@ def get_readability_stats(text):
 	}
 
 def get_raw_stats(book, text):
+	download('punkt')
 	return {
 		'total_words': textstat.lexicon_count(text),
 		'total_sentences': len(sent_tokenize(text)),
