@@ -38,13 +38,14 @@ def get_readability_stats(text):
 
 def get_raw_stats(book, text):
 	download('punkt')
+	total_words = textstat.lexicon_count(text)
 	return {
-		'total_words': textstat.lexicon_count(text),
+		'total_words': total_words,
 		'total_sentences': len(sent_tokenize(text)),
 		'total_letters': textstat.letter_count(text),
 		'total_syllables': textstat.syllable_count(text),
 		# 'total_paragraphs': len(get_paragraphs(text)),
-		# 'average_word_difficulty': get_average_frequency(book)
+		'average_word_difficulty': get_average_frequency(book, total_words)
 	}
 
 def set_book_stats(book, stats):

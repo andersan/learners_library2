@@ -11,8 +11,8 @@ admin.site.register(Book_Stats)
 admin.site.register(Book_Readability)
 admin.site.register(Book_Text)
 admin.site.register(Keyword)
-admin.site.register(Word)
 admin.site.register(Download)
+admin.site.register(Word_Counter)
 
 
 

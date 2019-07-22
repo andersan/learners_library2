@@ -9,3 +9,4 @@ Pillow==6.0.0
 python-dotenv==0.10.3
 whitenoise==4.1.2
 gunicorn==19.9.0
+ujson==1.35

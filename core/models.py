@@ -1,8 +1,6 @@
 import uuid
 
 from django.db import models
-from core.get_word_frequencies import get_average_frequency
-# from core.get_gutenberg_data import set_book_stats, get_readability_stats, get_raw_stats
 
 # Create your models here.
 
@@ -58,6 +56,14 @@ class Book(models.Model):
 	# objects = BookManager()
 	def __str__(self):
 		return self.title
+	def has_word_counter(self):
+	    has_word_counter = False
+	    try:
+	        has_word_counter = (self.word_counter is not None)
+	    except Word_Counter.DoesNotExist:
+	        pass
+	    return has_word_counter
+		# return hasattr(self, 'word_counter') and self.book is not None
 	def has_book_stats(self):
 	    has_book_stats = False
 	    try:
@@ -88,13 +94,12 @@ class Book_Readability(models.Model):
 	def __str__(self):
 		return self.book.title
 
-class Word(models.Model):
+class Word_Counter(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-	word = models.CharField(max_length=31)
-	count = models.PositiveSmallIntegerField()
-	book = models.ForeignKey(Book, on_delete=models.CASCADE, blank=True, null=True)
+	book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name='word_counter')
+	counter = models.TextField(blank=True, null=True)
 	def __str__(self):
-		return self.word
+		return self.book.title
 
 class Book_Stats(models.Model):
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
